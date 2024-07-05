@@ -99,6 +99,7 @@ export const buildProp = <
 }
 
 export const buildProps = <
+  // 定义了一个泛型Props，要求它是一个键为字符串、值为特定类型联合的记录类型。这允许传入一个对象，其键是属性名，值则是各种类型的属性配置选项。
   Props extends Record<
     string,
     | { [epPropKey]: true }

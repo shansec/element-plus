@@ -9,6 +9,13 @@ import type { ExtractPropTypes } from 'vue'
 import type { ZIndexProperty } from 'csstype'
 import type Affix from './affix.vue'
 
+// affixProps = {
+//   type,
+//   required: !!required,
+//   validator: _validator,
+//   [epPropKey]: true,
+//   default
+// }
 export const affixProps = buildProps({
   /**
    * @description affix element zIndex value

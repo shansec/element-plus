@@ -7,12 +7,13 @@ export const withInstall = <T, E extends Record<string, any>>(
   main: T,
   extra?: E
 ) => {
+  // 组件注册
   ;(main as SFCWithInstall<T>).install = (app): void => {
     for (const comp of [main, ...Object.values(extra ?? {})]) {
       app.component(comp.name, comp)
     }
   }
-
+  // 属性挂载
   if (extra) {
     for (const [key, comp] of Object.entries(extra)) {
       ;(main as any)[key] = comp
@@ -41,6 +42,7 @@ export const withInstallDirective = <T extends Directive>(
   return directive as SFCWithInstall<T>
 }
 
+// 给组件动态添加一个 install 方法
 export const withNoopInstall = <T>(component: T) => {
   ;(component as SFCWithInstall<T>).install = NOOP
 
